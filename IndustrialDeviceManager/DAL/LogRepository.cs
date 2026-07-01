@@ -12,6 +12,8 @@ namespace IndustrialDeviceManager.DAL
 }
 */
 using System;
+using System.Collections.Generic;
+using System.Data;
 using System.Data.SQLite;
 using IndustrialDeviceManager.Models;
 
@@ -58,6 +60,41 @@ namespace IndustrialDeviceManager.DAL
                     log.CreateTime));
 
             return rows > 0;
+        }
+
+        /// <summary>
+        /// 查询全部日志
+        /// </summary>
+        public List<LogInfo> GetAll()
+        {
+            List<LogInfo> list =
+                new List<LogInfo>();
+
+            DataTable table =
+                SQLiteHelper.ExecuteQuery(
+                "SELECT * FROM Logs ORDER BY Id DESC");
+
+            foreach (DataRow row in table.Rows)
+            {
+                LogInfo log =
+                    new LogInfo();
+
+                log.Id =
+                    Convert.ToInt32(row["Id"]);
+
+                log.LogLevel =
+                    row["LogLevel"].ToString();
+
+                log.Message =
+                    row["Message"].ToString();
+
+                log.CreateTime =
+                    row["CreateTime"].ToString();
+
+                list.Add(log);
+            }
+
+            return list;
         }
     }
 }

@@ -5,12 +5,18 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IndustrialDeviceManager", "
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
 		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{085DF4E2-9F19-4C62-AB6B-6ED43EF9EA26}.Debug|x64.ActiveCfg = Debug|x64
+		{085DF4E2-9F19-4C62-AB6B-6ED43EF9EA26}.Debug|x64.Build.0 = Debug|x64
 		{085DF4E2-9F19-4C62-AB6B-6ED43EF9EA26}.Debug|x86.ActiveCfg = Debug|x86
 		{085DF4E2-9F19-4C62-AB6B-6ED43EF9EA26}.Debug|x86.Build.0 = Debug|x86
+		{085DF4E2-9F19-4C62-AB6B-6ED43EF9EA26}.Release|x64.ActiveCfg = Release|x64
+		{085DF4E2-9F19-4C62-AB6B-6ED43EF9EA26}.Release|x64.Build.0 = Release|x64
 		{085DF4E2-9F19-4C62-AB6B-6ED43EF9EA26}.Release|x86.ActiveCfg = Release|x86
 		{085DF4E2-9F19-4C62-AB6B-6ED43EF9EA26}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection

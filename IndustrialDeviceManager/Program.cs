@@ -37,9 +37,33 @@ namespace IndustrialDeviceManager
         {
             Application.EnableVisualStyles();
 
-            DatabaseInitializer.Initialize();
-
             Application.SetCompatibleTextRenderingDefault(false);
+
+            try
+            {
+                DatabaseInitializer.Initialize();
+            }
+            catch (BadImageFormatException ex)
+            {
+                MessageBox.Show(
+                    "SQLite组件位数与程序平台不一致，请确认程序和System.Data.SQLite/SQLite.Interop.dll均为x64或均为x86。\r\n\r\n" +
+                    ex.Message,
+                    "SQLite加载失败",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+
+                return;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    "数据库初始化失败：\r\n" + ex.Message,
+                    "启动失败",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+
+                return;
+            }
 
             Application.Run(new MainForm());
         }
